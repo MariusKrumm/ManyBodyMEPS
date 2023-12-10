@@ -16,4 +16,10 @@ A direct implementation of MEPS without any restrictions on the graph and random
 
 The cutoff is motivated by the observation that most of modern physics can be understood as arising from fundamental interactions of just a handful of particles. We believe that this inductive bias will also perform in reinforcement learning problems. This belief is supported by the observation that also humans can only combine few concepts at a time, and are nonetheless very successful in many domains.
 
+## Environments
+To demonstrate the application of MEPS for explainable reinforcement learning, and provide numerical evidence for the resource savings provided by our inductive, we test MEPS in two synthetic environments:
+
+* The <em>Invasion Game With Distraction</em>. The Invasion Game is a standard toy environment in the PS literature. Here, we extend it in two ways that allow to showcase the numerical properties of our inductive bias in a simple environment. The agent observes the values of three observables, each of them represented as an excitation. The agent has to pick one of two doors. The right choice depends non-trivially on the values first two observables. To map the combined information of the first two observables to the action, we need a MEPS agent who can consider at least two excitations simultaneously. Furthermore, the third observable is a useless distraction. MEPS agents that consider three excitations simultaneously are less efficient, because their random walk distinguishes between different values of the useless observable. 
+* The second environment models scenarios in which an agent observes symptoms of a malfunctioning computer, and has to take actions to repair the computer. We train a multi-layered MEPS agent to solve the environment. The hidden layer of the agent represents guesses of the agent about the cause of the symptoms. Therefore, this setting provides an example for a simple MEPS agent that uses chains-of-thought consisting of two thoughts to solve a problem.
+
 ## Used packages
