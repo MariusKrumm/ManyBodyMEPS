@@ -3,6 +3,8 @@
 ## Overview
 This repository provides python code and results for the paper <em>Multi-Excitation Projective Simulation, And A Many-Body Physics Inspired Inductive Bias</em> by Philip A. LeMaitre, Marius Krumm, and Hans J. Briegel.
 
+The code in this package has been developed by Philip A. LeMaitre and Marius Krumm.
+
 ## Projective Simulation and its many-body extension
 
 <em>Projective Simulation</em>(PS) is a framework in eXplainable Artificial Intelligence (XAI). It models <em>chains-of-thought</em> as a random walk of one particle/excitation on a graph in which vertices represent concepts or memories. While this framework has been successfully applied to many domains, it does not directly capture concepts of thoughts that have a compositional nature. This includes thoughts that combine several memories to arrive at a new conclusion. 
