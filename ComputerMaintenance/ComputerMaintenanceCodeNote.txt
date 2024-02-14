@@ -1,0 +1,17 @@
+Combinations(X, Y) computes all possible ordered subsets of X of length Y as a generator object, so when iterated over in a list, each element must be converted into a list object by calling list(x); that is what 
+
+List1 = [list(x) for x in combinations(X, y+1)]   (1)
+
+does (note that the length variable has a 1 added to it because Python iterators start at 0 but we do not want to consider subsets of length 0). By nesting this list inside another list that iterates over the variable y, we are generating all possible ordered subsets of X for each length y+1 (starting from y=1) as separate nested lists in this bigger list; that is what 
+
+List2 = [[list(x) for x in combinations(X, y+1)] for y in range(1, len(X))]   (2)
+
+does. Now we just want to have one list with all of these subsets as elements, so we call chain.from_iterable() on it to concatenate the inner lists. However, chain.from_iterable() creates a generator object, so we need to call list() on the result to convert it into a list; this is how we arrive at the line
+
+List3 = list(chain.from_iterable([[list(x) for x in combinations(X, y+1)] for y in range(1, len(X))]))   (3)
+
+If we continue from (2) instead of moving to (3), we can call the function product() on our list after unpacking each nested list as an argument to it (using the asterisk operator just before the list), which will compute the Cartesian product of all the nested lists as a generator that we again need to iterate over and convert each element to a list type using list(); that is what 
+
+List4 = [list(x) for x in product(*List2)]
+
+does.
